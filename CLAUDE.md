@@ -1,4 +1,47 @@
-# CLAUDE.md — caveman
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Common Commands
+
+### Evals
+
+```bash
+# Refresh snapshot (needs `claude` CLI logged in)
+uv run python evals/llm_run.py
+
+# Use cheaper model
+CAVEMAN_EVAL_MODEL=claude-haiku-4-5 uv run python evals/llm_run.py
+
+# Read snapshot (no LLM, no API key)
+uv run --with tiktoken python evals/measure.py
+```
+
+### Benchmarks
+
+```bash
+# Needs ANTHROPIC_API_KEY in .env.local
+uv run python benchmarks/run.py
+```
+
+### Hooks (local dev)
+
+```bash
+# Install hooks into ~/.claude/
+bash hooks/install.sh
+
+# Uninstall
+bash hooks/uninstall.sh
+```
+
+### caveman-compress script
+
+```bash
+# Compress a file (requires Python 3.10+)
+uv run python caveman-compress/scripts/__main__.py <file-path>
+```
+
+---
 
 ## README is a product artifact
 
